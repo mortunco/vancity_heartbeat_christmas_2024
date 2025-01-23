@@ -1,9 +1,25 @@
+## Vancity Heartbeat Project Code.
+
+## Local Section 
+To do the query, you will be needing pandas, numpy and requests packages.
+Following code does a single fetch and writes into a CSV file in local_operations/rawdata
+```
+cd local_operations
+python get_evo_status.py 
+```
+
+To process the data for additional metadata (distance of the trip, binning the coordinates etc.). This processes the file and moves the rawdata to processed_data. It creates cars_locations.json to link different time points with each other.
+```
+cd local_operations
+python process-oncoming-data.py
+```
+
 ## AWS Section Setup
 
 ### S3 Setup
 We need to create a S3 bucket for this operation. If you take a look at get_evo_status.py you will see that it will upload csv files to `s3://tunc-evo/raw` so make sure you create them.
 
-#### Lambda Setup
+### Lambda Setup
 ```
 cd aws_operations/lambda_image
 docker build --platform linux/amd64 -t my-lambda-function . ### lambda is default x86_64. I have a mac and docker was created with ARM. This is the fix for that.
@@ -46,7 +62,7 @@ aws lambda add-permission \
         --query "Rules[0].Arn" \
         --output text ) \
 ```
-## Athena Setup.
+### Athena Setup.
 (I don't know how to share this but these are my Athena queries to create my trips table.)
 
 Following code reads all the CSVs and merges them into a giant table. (This section could be improved)
@@ -114,7 +130,7 @@ ORDER BY a.plate,
   time1;
 ```
 
-## Visualization
+### Visualization
 I used Foursquare Studio to visualize this data. You can see my workspace here. Feel free to play with it. I wanted to stress on the drop on Christmas Day, therefore made the dot plot in Vancouver Harbour in a dirty way. There is definitely room for improvement here to use more modular options.
 
 There is also an easter egg here. If you zoom out you will actually see all of the EVOs in BC which includes Nanaimo and Victoria.
