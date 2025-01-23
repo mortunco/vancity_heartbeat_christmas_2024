@@ -1,0 +1,4 @@
+id,plate,lat,lon,energyLevel,retrieved_datestamp,retrieved_timestamp
+xxx,TEST1,1,2,46,2024/11/10,09:40:33
+yyy,TEST2,5,16,46,2024/11/10,09:40:33
+zzz,TEST3,3,3,46,2024/11/10,09:40:33
