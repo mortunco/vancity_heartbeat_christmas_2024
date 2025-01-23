@@ -1,4 +1,3 @@
-
 ## AWS Section Setup
 
 ### S3 Setup
@@ -48,7 +47,7 @@ aws lambda add-permission \
         --output text ) \
 ```
 ## Athena Setup.
-(I dont know how to share this but these are my Athena queries to create my trips table.)
+(I don't know how to share this but these are my Athena queries to create my trips table.)
 
 Following code reads all the CSVs and merges them into a giant table. (This section could be improved)
 ```
@@ -115,8 +114,8 @@ ORDER BY a.plate,
   time1;
 ```
 
-## Visualisation
-I used Foursquare Studio to visualise this data. You can see my workspace here. Feel free to play with it. I wanted to stress on the drop on Christmas Day, therefore made the dot plot in Vancouver Harbour in a dirty way. There is definetely room for improvement here to use more moduler options.
+## Visualization
+I used Foursquare Studio to visualize this data. You can see my workspace here. Feel free to play with it. I wanted to stress on the drop on Christmas Day, therefore made the dot plot in Vancouver Harbour in a dirty way. There is definitely room for improvement here to use more modular options.
 
 There is also an easter egg here. If you zoom out you will actually see all of the EVOs in BC which includes Nanaimo and Victoria.
 
